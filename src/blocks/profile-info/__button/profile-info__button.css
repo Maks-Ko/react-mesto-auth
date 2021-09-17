@@ -1,0 +1,25 @@
+.profile-info__button {
+    width: 24px;
+    height: 24px;
+    background-color: #000000;
+    border: 1px solid rgba(255, 255, 255, 1);
+    background-image: url(../../../images/Vector.png);
+    background-size: 10px 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: opacity 1s ease-in-out;
+}
+
+.profile-info__button:hover {
+    opacity: .6;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.2) 100%), url(../../../images/Vector.png);
+    cursor: pointer;
+}
+
+@media (max-width: 450px) {
+    .profile-info__button {
+        width: 18px;
+        height: 18px;
+        background-size: 7.5px 7.5px;
+    }
+}
