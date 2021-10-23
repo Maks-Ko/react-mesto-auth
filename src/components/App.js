@@ -1,4 +1,6 @@
 import '../index.css';
+import React from 'react';
+import { Route } from 'react-router-dom';
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
@@ -7,7 +9,8 @@ import EditProfilePopup from './EditProfilePopup';
 import EditAvatarPopup from './EditAvatarPopup';
 import AddPlacePopup from './AddPlacePopup';
 import ImagePopup from './ImagePopup';
-import React from 'react';
+import Login from './Login';
+import Register from './Register';
 import api from '../utils/Api';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
@@ -143,6 +146,12 @@ function App() {
     <div className="root">
       <CurrentUserContext.Provider value = {currentUser}>
         <Header />
+        <Route path="/sign-in">
+          <Login />
+        </Route>
+        <Route path="/sign-up">
+          <Register />
+        </Route>
         <Main
             onEditAvatar = {handleEditAvatarClick}
             onEditProfile = {handleEditProfileClick}
@@ -151,7 +160,7 @@ function App() {
             cards = {cards}
             onCardLike = {handleCardLike}
             onCardDelete = {handleCardDelete} />
-        <Footer />
+        <Footer />        
         <EditProfilePopup
             isOpen = {isEditProfilePopupOpen}
             onClose = {closeAllPopups}
