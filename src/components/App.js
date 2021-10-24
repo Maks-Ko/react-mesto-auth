@@ -201,10 +201,9 @@ function App() {
             name = {selectedCard.name}
             link = {selectedCard.link} />
         <InfoTooltip
-            isOpen = {false? "popup_is-opened" : ""}
+            isOpen = {false ? "popup_is-opened" : ""}
             name = "tooltipe"
-            isImage = {true ? "successfully" : "unsuccessful"}
-            isLuck = {true ? "Вы успешно зарегистрировались!" : "Что-то пошло не так! Попробуйте ещё раз."} />
+            isLuck = {true} />
       </CurrentUserContext.Provider>   
     </div>
   );
