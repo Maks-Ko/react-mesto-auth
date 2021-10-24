@@ -1,7 +1,6 @@
 import '../index.css';
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
 import PopupWithForm from './PopupWithForm';
@@ -9,6 +8,7 @@ import EditProfilePopup from './EditProfilePopup';
 import EditAvatarPopup from './EditAvatarPopup';
 import AddPlacePopup from './AddPlacePopup';
 import ImagePopup from './ImagePopup';
+import InfoTooltip from './InfoTooltip';
 import Login from './Login';
 import Register from './Register';
 import ProtectedRoute from './ProtectedRoute';
@@ -22,7 +22,7 @@ function App() {
   const [selectedCard, setSelectedCard] = React.useState({ isOpen: false, name: '', link: ''});  
   const [currentUser, setCurrentUser] = React.useState({});
   const [cards, setCards] = React.useState([]);
-  const [loggedIn, setLoggedIn] = React.useState(true);
+  const [loggedIn, setLoggedIn] = React.useState(false);
 
   React.useEffect(() => {
     api.getItemsUser()
@@ -200,6 +200,11 @@ function App() {
             onClose = {closeAllPopups}
             name = {selectedCard.name}
             link = {selectedCard.link} />
+        <InfoTooltip
+            isOpen = {false? "popup_is-opened" : ""}
+            name = "tooltipe"
+            isImage = {true ? "successfully" : "unsuccessful"}
+            isLuck = {true ? "Вы успешно зарегистрировались!" : "Что-то пошло не так! Попробуйте ещё раз."} />
       </CurrentUserContext.Provider>   
     </div>
   );
