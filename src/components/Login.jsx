@@ -5,7 +5,7 @@ import Header from "./Header";
 function Login() {
     return(
         <>
-            <Header link = "/sign-up" linkText = "Регистрация" />
+            <Header link = "/signup" linkText = "Регистрация" />
             <PageWithForm
                 title = "Вход"
                 buttonText = "Войти"

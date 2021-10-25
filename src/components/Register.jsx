@@ -5,12 +5,12 @@ import Header from "./Header";
 function Register() {
     return(
         <>
-            <Header link = "/sign-in" linkText = "Войти" />
+            <Header link = "/signin" linkText = "Войти" />
             <PageWithForm
                 title = "Регистрация"
                 buttonText = "Зарегистрироваться"
                 text = "Уже зарегистрированы?"
-                link = "/sign-in"
+                link = "/signin"
                 linkText = "Войти"
             >
                 <input name="email" className="form__text form__text_page" type="email" placeholder="Email" requiredminlength="2" maxLength="40" />

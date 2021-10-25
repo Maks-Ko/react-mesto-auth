@@ -149,10 +149,10 @@ function App() {
       <CurrentUserContext.Provider value = {currentUser}>
         {/* <Header /> */}
         <Switch>          
-          <Route exact path="/sign-in">
+          <Route exact path="/signin">
             <Login />
           </Route>
-          <Route path="/sign-up">
+          <Route path="/signup">
             <Register />
           </Route>
           <ProtectedRoute

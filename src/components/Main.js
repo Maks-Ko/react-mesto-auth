@@ -10,7 +10,7 @@ function Main(props) {
     return(
         
         <>
-            <Header email="kozhevnikow@yandex.ru" link="/sign-in" linkText="Выйти" />
+            <Header email="kozhevnikow@yandex.ru" link="/signin" linkText="Выйти" />
             <main className="main">
                 <section className="profile">
                     <img src={currentUser.avatar} alt="Аватарка" className="profile__avatar" />
