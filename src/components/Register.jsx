@@ -3,6 +3,26 @@ import PageWithForm from "./PageWithForm";
 import Header from "./Header";
 
 function Register() {
+    const [data, setData] = React.useState({
+        email: '',
+        password: ''
+    });
+
+    function handleChange(e) {
+        const { name, value } = e.target;
+        setData({
+            ...data,
+            [name]: value
+        });
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        const { email, password } = data;
+        console.log({ email, password });
+    }
+
+
     return(
         <>
             <Header link = "/signin" linkText = "Войти" />
@@ -12,11 +32,13 @@ function Register() {
                 text = "Уже зарегистрированы?"
                 link = "/signin"
                 linkText = "Войти"
+                name = "register"
+                onSubmit={handleSubmit}
             >
-                <input name="email" className="form__text form__text_page" type="email" placeholder="Email" requiredminlength="2" maxLength="40" />
-                {/* <span id="user_name-error" className="form__input-error"></span> */}
-                <input name="password" className="form__text form__text_page" type="password" placeholder="Пароль" requiredminlength="2" maxLength="200" />
-                {/* <span id="activity-error" className="form__input-error"></span> */}
+                <input id="email" name="email" value={data.email || ''} onChange={handleChange} className="form__text form__text_page" type="email" placeholder="Email" requiredminlength="2" maxLength="40" />
+                {/* <span id="email-error" className="form__input-error"></span> */}
+                <input id="password" name="password" value={data.password || ''} onChange={handleChange} className="form__text form__text_page" type="password" placeholder="Пароль" requiredminlength="3" maxLength="20" />
+                {/* <span id="password-error" className="form__input-error"></span> */}
             </PageWithForm>
         </>
     );

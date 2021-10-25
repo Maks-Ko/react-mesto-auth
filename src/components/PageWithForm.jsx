@@ -4,7 +4,7 @@ function PageWithForm(props) {
     return (
         <div className="page-form">
             <h2 className="page-form__title">{`${props.title}`}</h2>
-            <form name={`${props.name}`} className="form" id={`${props.id}`} onSubmit={props.onSubmit}>
+            <form name={`${props.name}`} className="form" onSubmit={props.onSubmit}>
                 <fieldset className="form__container">
                 {props.children}
                 <button type="submit" className="form__button form__button_page">{props.buttonText}</button>

@@ -1,6 +1,6 @@
 class ApiUser {
     constructor() {
-        this._baseUrl = 'https://auth.nomoreparties.co/';
+        this._baseUrl = 'https://auth.nomoreparties.co';
         this._headers = {
             'Content-Type': 'application/json'
         }
@@ -8,7 +8,7 @@ class ApiUser {
 
     // регистрация на сервисе
     addUser (dataUser) {
-        return fetch (this._baseUrl, {
+        return fetch (`${this._baseUrl}/signup`, {
             method: 'POST',
             headers: this._headers,
             body: JSON.stringify({
@@ -21,7 +21,7 @@ class ApiUser {
 
     // авторизация на сервисе
     enterUser (dataUser) {
-        return fetch (this._baseUrl, {
+        return fetch (`${this._baseUrl}/signin`, {
             method: 'POST',
             headers: this._headers,
             body: JSON.stringify({
@@ -33,21 +33,18 @@ class ApiUser {
     }
 
     // проверка валидности токена и получения email
-    getToken (jwt) {
-        return fetch (this._baseUrl, {
+    getToken (token) {
+        return fetch (`${this._baseUrl}/user/me`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                "Authorization" : `Bearer ${jwt}`
+                "Authorization" : `Bearer ${token}`
             }
         })
     }
-    
-    _checkResponse (res) {
-        if (res.ok) {
-            return res.json();
-        }
-        return Promise.reject(`Ошибка: ${res.status}`);
+
+    _checkResponse (response) {
+        return response.ok ? response.json() : Promise.reject(`Ошибка: ${response.status}`);
     }
 }
 
