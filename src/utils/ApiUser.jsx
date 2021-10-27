@@ -2,6 +2,7 @@ class ApiUser {
     constructor() {
         this._baseUrl = 'https://auth.nomoreparties.co';
         this._headers = {
+            'Accept': 'application/json',
             'Content-Type': 'application/json'
         }
     }
@@ -12,8 +13,8 @@ class ApiUser {
             method: 'POST',
             headers: this._headers,
             body: JSON.stringify({
-                password: dataUser.password,
-                email: dataUser.email 
+                email: dataUser.email,
+                password: dataUser.password                
             })
         })
         .then (this._checkResponse)
@@ -25,8 +26,9 @@ class ApiUser {
             method: 'POST',
             headers: this._headers,
             body: JSON.stringify({
-                password: dataUser.password,
-                email: dataUser.email 
+                email: dataUser.email,
+                password: dataUser.password
+                
             })
         })
         .then (this._checkResponse)
@@ -37,6 +39,7 @@ class ApiUser {
         return fetch (`${this._baseUrl}/user/me`, {
             method: 'GET',
             headers: {
+                'Accept': 'application/json',
                 'Content-Type': 'application/json',
                 "Authorization" : `Bearer ${token}`
             }

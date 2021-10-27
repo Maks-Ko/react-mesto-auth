@@ -2,7 +2,7 @@ import React from "react";
 import PageWithForm from "./PageWithForm";
 import Header from "./Header";
 
-function Login() {
+function Login({ onLogin }) {
     const [data, setData] = React.useState({
         email: '',
         password: ''
@@ -19,7 +19,7 @@ function Login() {
     function handleSubmit(e) {
         e.preventDefault();
         const { email, password } = data;
-        console.log({ email, password })
+        onLogin({ email, password });
     }
 
     return(

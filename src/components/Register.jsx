@@ -2,7 +2,7 @@ import React from "react";
 import PageWithForm from "./PageWithForm";
 import Header from "./Header";
 
-function Register() {
+function Register({ onRegister }) {
     const [data, setData] = React.useState({
         email: '',
         password: ''
@@ -19,9 +19,8 @@ function Register() {
     function handleSubmit(e) {
         e.preventDefault();
         const { email, password } = data;
-        console.log({ email, password });
+        onRegister({ email, password });
     }
-
 
     return(
         <>

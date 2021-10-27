@@ -12,6 +12,7 @@ import InfoTooltip from './InfoTooltip';
 import Login from './Login';
 import Register from './Register';
 import ProtectedRoute from './ProtectedRoute';
+import apiUser from '../utils/ApiUser';
 import api from '../utils/Api';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
@@ -23,6 +24,45 @@ function App() {
   const [currentUser, setCurrentUser] = React.useState({});
   const [cards, setCards] = React.useState([]);
   const [loggedIn, setLoggedIn] = React.useState(false);
+  const [userDate, setUserDate] = React.useState({
+    _id: '',
+    email: ''
+  });
+
+  
+  function handleRegister({ email, password }) {
+    apiUser.addUser({ email, password })
+    .then((data) => {
+      const { _id, email } = data.data;
+      setUserDate({
+        _id,
+        email
+      });
+      setLoggedIn(true);
+    })
+    .catch((err) => {
+      console.log(err); // "Что-то пошло не так: ..."
+    });
+  }
+  
+  function handleLogin({ email, password }) {
+    console.log(email, password);
+    apiUser.enterUser({ email, password })
+    .then((data) => {
+      console.log(data);
+      localStorage.setItem('jwt', data.token);
+      setLoggedIn(true);
+    })
+    .catch((err) => {
+      console.log(err); // "Что-то пошло не так: ..."
+    });
+  }
+
+  function tokenCheck() {
+
+  }
+
+
 
   React.useEffect(() => {
     api.getItemsUser()
@@ -150,10 +190,10 @@ function App() {
         {/* <Header /> */}
         <Switch>          
           <Route exact path="/signin">
-            <Login />
+            <Login onLogin={handleLogin} tokenCheck={tokenCheck} />
           </Route>
           <Route path="/signup">
-            <Register />
+            <Register onRegister={handleRegister} />
           </Route>
           <ProtectedRoute
             path = "/"
