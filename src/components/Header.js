@@ -10,7 +10,7 @@ function Header(props) {
             </a>
             <div className="header__info">
                 <p className="header__email">{props.email}</p>
-                <Link to={props.link} className="header__text">{props.linkText}</Link>
+                {props.loggedIn ? <button onClick={props.onLogout} className="header__button">Выйти</button> : <Link to={props.link} className="header__text">{props.linkText}</Link>}
             </div>
         </header>
         

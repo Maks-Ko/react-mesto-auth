@@ -35,15 +35,16 @@ class ApiUser {
     }
 
     // проверка валидности токена и получения email
-    getToken (token) {
-        return fetch (`${this._baseUrl}/user/me`, {
+    getToken ({ jwt }) {
+        return fetch (`${this._baseUrl}/users/me`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                "Authorization" : `Bearer ${token}`
+                "Authorization" : `Bearer ${jwt}`
             }
-        })
+        })        
+        .then (this._checkResponse)
     }
 
     _checkResponse (response) {

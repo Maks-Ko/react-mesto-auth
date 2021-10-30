@@ -1,7 +1,7 @@
 import successfully from './../images/successfully.png';
 import unsuccessful from './../images/unsuccessful.png'
 
-function InfoTooltip(props) {
+function InfoTooltipPopup(props) {
     return(
         <div className={`popup popup_type_${props.name} ${props.isOpen}`}>
             <div className="tooltip">
@@ -13,4 +13,4 @@ function InfoTooltip(props) {
     )
 }
 
-export default InfoTooltip;
+export default InfoTooltipPopup;

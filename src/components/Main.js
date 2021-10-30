@@ -10,7 +10,13 @@ function Main(props) {
     return(
         
         <>
-            <Header email="kozhevnikow@yandex.ru" link="/signin" linkText="Выйти" />
+            <Header
+                email={props.userDate}
+                link="/signin"
+                linkText="Выйти"
+                onLogout={props.onLogout}
+                loggedIn={props.loggedIn}
+            />
             <main className="main">
                 <section className="profile">
                     <img src={currentUser.avatar} alt="Аватарка" className="profile__avatar" />
