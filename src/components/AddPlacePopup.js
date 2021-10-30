@@ -16,7 +16,9 @@ function AddPlacePopup(props) {
         props.onAddPlace({
             name: nameImage,
             link: urlImage
-        })
+        });
+        setNameImage('');
+        setUrlImage('');
     }
 
     return(

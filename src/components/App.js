@@ -225,7 +225,7 @@ function App() {
     api.addCardForm(props)
     .then((newCard) => {
       setCards([newCard, ...cards]);
-      closeAllPopups();     
+      closeAllPopups();
     })
     .catch((err) => {
       console.log(err); // "Что-то пошло не так: ..."
