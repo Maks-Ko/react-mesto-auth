@@ -6,5 +6,26 @@
     /* position: relative; */
     /* border: 1px solid rgba(0, 0, 0, 1); */
     /* border-radius: 10px; */
-    padding: 20px;
+    padding: calc((100vh - (454px + 162px + 148px)) / 2) 20px;
+}
+
+@media (max-width: 920px) {
+    .page-form {
+        margin: 0 auto 40px;
+        padding: calc((100vh - (454px + 152px + 126px)) / 2) 20px;        
+    }
+}
+
+@media (max-width: 730px) {
+    .page-form {
+        margin: 0 auto 40px;
+        padding: calc((100vh - (450px + 152px + 101px)) / 2) 10px;        
+    }
+}
+
+@media (max-width: 450px) {
+    .page-form {
+        margin: 0 auto 40px;
+        padding: calc((100vh - (450px + 126px + 101px)) / 2) 5px;        
+    }
 }

@@ -5,3 +5,9 @@
     color: #FFFFFF;
     text-decoration: none;
 }
+
+@media (max-width: 920px) {
+    .header__text {
+        padding-right: 27px;
+    }
+}
